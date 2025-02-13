@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>靜態版 - 影片地點辨識介面</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      margin: 0; 
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #ffa52f;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      padding: 12px;
+    }
+
+    main {
+      padding: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* 影片區 */
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    video {
+      width: 100%;
+      background: #000;
+      outline: none;
+    }
+
+    /* 資訊面板 */
+    .info-panel {
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    /* 地點清單 */
+    .landmark-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .landmark-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .landmark-item:last-child {
+      border-bottom: none;
+    }
+
+    .time-place {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .time-range {
+      font-weight: bold;
+      margin-right: 6px;
+      color: #555;
+    }
+    .place-name {
+      color: #222;
+    }
+
+    .action-link {
+      background: #ffa52f;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .action-link:hover {
+      background: #ff8c00;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    /* 「最佳化路線」按鈕 (純靜態) */
+    .opt-route-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #ffa52f;
+      color: #fff;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none; /* 若用 <a> */
+    }
+    .opt-route-btn:hover {
+      background: #ff8c00;
+    }
+
+    /* 響應式 */
+    @media (min-width: 600px) {
+      .time-place {
+        font-size: 1rem;
+      }
+      .action-link {
+        font-size: 0.9rem;
+      }
+      .opt-route-btn {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  影片時間軸 vs. 地點辨識
+</header>
+
+<main>
+  <!-- 影片區 -->
+  <div class="video-container">
+    <video controls>
+      <!-- 可換成您自己的影片檔 or 網路影片連結 -->
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      您的瀏覽器不支援 HTML5 影片
+    </video>
+  </div>
+
+  <!-- 資訊面板 -->
+  <div class="info-panel">
+    <div class="subtitle">影片中辨識到的地點區段</div>
+    
+    <!-- 地點清單 (純靜態) -->
+    <ul class="landmark-list">
+      <li class="landmark-item">
+        <div class="time-place">
+          <span class="time-range">14:00 ~ 15:00</span>
+          <span class="place-name">安平古堡</span>
+        </div>
+        <!-- 純靜態連結，不會執行任何跳秒動作 -->
+        <a href="#" class="action-link">查看片段</a>
+      </li>
+      <li class="landmark-item">
+        <div class="time-place">
+          <span class="time-range">15:00 ~ 16:00</span>
+          <span class="place-name">安平老街</span>
+        </div>
+        <a href="#" class="action-link">查看片段</a>
+      </li>
+      <li class="landmark-item">
+        <div class="time-place">
+          <span class="time-range">16:00 ~ 17:00</span>
+          <span class="place-name">四草綠色隧道</span>
+        </div>
+        <a href="#" class="action-link">查看片段</a>
+      </li>
+    </ul>
+
+    <div class="note">
+      * 以上資料為範例，實際地點與時間段須由 AI / 後端資料動態生成
+    </div>
+
+    <!-- 最佳化路線 (純靜態按鈕) -->
+    <div style="margin-top:12px;">
+      <a href="#" class="opt-route-btn">最佳化路線</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>行程規劃</title>
+  <style>
+    /* RESET & GLOBAL */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+      background: #f8f8f8;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      background: #ffa52f;
+      color: #fff;
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    /* MAIN */
+    main {
+      padding: 10px;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    /* 行程清單容器 */
+    .itinerary-list {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 12px;
+    }
+    .itinerary-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding: 8px 0;
+    }
+    .itinerary-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 70%;
+    }
+    .item-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .item-desc {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    .item-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-delete {
+      background: #eee;
+      color: #333;
+    }
+    .btn-up {
+      background: #d1f7c4;
+      color: #333;
+    }
+    .btn-down {
+      background: #c4d8f7;
+      color: #333;
+    }
+
+    /* 底部操作區 */
+    .bottom-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn-route {
+      background: #ffa52f;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+    }
+    .btn-map {
+      background: #fff;
+      color: #ffa52f;
+      border: 2px solid #ffa52f;
+      text-align: center;
+    }
+
+    /* 底部導航欄 */
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 56px;
+      background: #fff;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 10;
+    }
+    .nav-item {
+      flex: 1;
+      text-align: center;
+    }
+    .nav-item a {
+      display: inline-block;
+      color: #666;
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+
+    /* 簡易響應式 */
+    @media (min-width: 600px) {
+      .item-title {
+        font-size: 1.1rem;
+      }
+      .item-desc {
+        font-size: 0.9rem;
+      }
+      .btn {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>我的行程規劃</header>
+
+  <main>
+    <div class="section-title">已加入的景點：</div>
+    <div class="itinerary-list">
+      <!-- 這裡模擬若使用者剛剛在 "tiktok-style.html" 加入了幾個點 -->
+      <div class="itinerary-item">
+        <div class="item-info">
+          <div class="item-title"><a href="video.html">南投之旅（可以按）</a></div>
+          <div class="item-desc">環湖單車</div>
+        </div>
+        <div class="item-actions">
+          <a href="#" class="btn btn-up">↑</a>
+          <a href="#" class="btn btn-down">↓</a>
+          <a href="#" class="btn btn-delete">刪除</a>
+        </div>
+      </div>
+      <div class="itinerary-item">
+        <div class="item-info">
+          <div class="item-title"><a href="video.html">花蓮之旅（可以按）</a></div>
+          <div class="item-desc">早晨時段拍照超美</div>
+        </div>
+        <div class="item-actions">
+          <a href="#" class="btn btn-up">↑</a>
+          <a href="#" class="btn btn-down">↓</a>
+          <a href="#" class="btn btn-delete">刪除</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-actions">
+      <a href="#" class="btn btn-map">查看地圖</a>
+    </div>
+  </main>
+
+  <!-- 底部導航 -->
+  <nav>
+    <div class="nav-item">
+      <a href="tiktok-style.html">首頁</a>
+    </div>
+    <div class="nav-item">
+      <a href="tiktok-style.html">瀏覽</a>
+    </div>
+    <div class="nav-item">
+      <a href="schedule.html">行程</a>
+    </div>
+    <div class="nav-item">
+      <a href="#">我的</a>
+    </div>
+  </nav>
+</body>
+</html>
